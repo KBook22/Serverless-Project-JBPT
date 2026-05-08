@@ -1,6 +1,6 @@
-# 🚀 [ชื่อโปรเจค] — ENG23 3074
+# 🚀 JBPT-QR Code — ENG23 3074
 
-> ระบบ web-block เป็นเว็บที่ใช้เผยแพร่ผลงานหรือแชร์ไอเดียส่วนตัวที่จะเปิดเป็นสาธารณะเพื่อให้ผู้ใช้ทั่วไปที่มีความสนใจในบทความได้เข้ามาเยี่ยมชมและอ่านบทความได้
+> ระบบแปลง URL เป็นรูปภาพ QR Code ช่วยเปลี่ยนลิงก์ที่ยาวและซับซ้อน ให้กลายเป็น QR Code ที่พร้อมดาวน์โหลดและนำไปใช้งานได้ทันที เพิ่มความสะดวกในการแชร์ และช่วยให้ผู้รับเข้าถึงเว็บไซต์ได้ง่ายๆ เพียงแค่สแกน
 
 ---
 
@@ -9,19 +9,19 @@
 | รหัสนักศึกษา | ชื่อ-นามสกุล | ความรับผิดชอบ |
 |-------------|-------------|---------------|
 | B6600907 | นางสาววรัทยา ปัตตะเน | Terraform, Ansible |
-| B6603892 | นายศุภณัฐ สิงหา | Kubernetes, Monitoring |
+| B6603892 | นายศุภณัฐ สิงหา | Docker, Monitoring |
 | B6614690 | นายพิพัฒน์ อินสวรรค์ | Web Development |
-| B6627065 | นายกิตติศักดิ์ ชิ้นทอง | Git, Jenkins, Docker |
+| B6627065 | นายกิตติศักดิ์ ชิ้นทอง | Git, Jenkins, Kubernetes |
 
 ---
 
 ## 📌 ภาพรวมโปรเจค
 
 ### แอปพลิเคชัน
-- **ชื่อ:** [ชื่อแอป]
-- **ประเภท:** [เช่น REST API / Web App]
-- **ภาษา / Framework:** [เช่น Python Flask / Node.js Express]
-- **คำอธิบาย:** [อธิบาย 2–3 ประโยคว่าแอปทำอะไร ใช้แก้ปัญหาอะไร]
+- **ชื่อ:** JBPT-QR Code
+- **ประเภท:** Web App
+- **ภาษา / Framework:** FRONTEND : React / BACKEND : Elysia.js
+- **คำอธิบาย:** ระบบจะสามารถนำ url มาวางแล้วสามารถแปลงจาก url เป็น QR Code หลังจากแปลงเป็น QR Code แล้วยังสามารถดาวน์โหลดรูปภาพ QR Code ได้ 
 
 ### Architecture Diagram
 ```
@@ -62,7 +62,7 @@ Developer
 ## 📁 โครงสร้าง Repository
 
 ```
-[project-name]/
+Serverless-Project-JBPT/
 ├── app/
 │   ├── app.py                  # โค้ดหลักของแอปพลิเคชัน
 │   ├── requirements.txt        # Python dependencies
@@ -108,8 +108,8 @@ Developer
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/[username]/[project-name].git
-cd [project-name]
+git clone https://github.com/KBook22/Serverless-Project-JBPT.git
+cd Serverless-Project-JBPT
 ```
 
 ### 2. รันแอปบนเครื่องโดยตรง (ไม่ผ่าน pipeline)
