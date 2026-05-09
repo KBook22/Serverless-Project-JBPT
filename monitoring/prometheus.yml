@@ -1,0 +1,47 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+
+  - job_name: 'prometheus' # Prometheus self-scraping configuration
+
+    static_configs:
+      - targets:
+          - 'localhost:9090'
+
+        labels:
+          role: 'monitoring'
+          node: 'prometheus-server'
+
+  - job_name: 'k8s-control-node' # Kubernetes Control Plane
+    static_configs:
+      - targets:
+          - '192.168.193.101:9090'
+
+        labels:
+          role: 'control-plane'
+          node: 'control-1'
+
+  - job_name: 'k8s-worker-nodes' # Kubernetes Worker Nodes
+    static_configs:
+      - targets:
+          - '192.168.193.102:9090'
+
+        labels:
+          role: 'worker'
+          node: 'worker-1'
+
+      - targets:
+          - '192.168.1.103:9090'
+
+        labels:
+          role: 'worker'
+          node: 'worker-2'
+
+      - targets:
+          - '192.168.1.104:9090'
+
+        labels:
+          role: 'worker'
+          node: 'worker-3'
