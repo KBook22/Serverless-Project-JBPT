@@ -37,6 +37,9 @@ export function InputTabs({ inputType, setInputType, content, setContent }: Prop
       {inputType === 'url' && (
         <p className="text-gray-500 text-sm">เช่น https://example.com/</p>
       )}
+      {inputType === 'plaintext'&&(
+        <p className='text-gray-500 text-sm'>เช่น ทดสอบข้อความธรรมดา</p>
+      )})
     </div>
   );
 }
