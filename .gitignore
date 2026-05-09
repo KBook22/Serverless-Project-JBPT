@@ -1,2 +1,6 @@
 .env
 .CLAUDE.MD
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup

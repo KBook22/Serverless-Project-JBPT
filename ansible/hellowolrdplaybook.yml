@@ -1,0 +1,10 @@
+- name: hello world
+  hosts: cluster
+  tasks:
+    - name: Hello
+      shell: echo "Hello from Ansible! Project by CPE SUT Student"
+
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+      ignore_errors: yes # กันเหนียวเผื่อ Image nginx ไม่มี apt
