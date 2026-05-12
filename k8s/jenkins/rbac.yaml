@@ -5,7 +5,7 @@ metadata:
 rules:
 - apiGroups: ["", "apps"]
   resources: ["deployments", "services", "secrets", "persistentvolumes", "persistentvolumeclaims", "pods"]
-  verbs: ["get", "list", "create", "update", "patch", "delete", "apply"]
+  verbs: ["get", "list", "create", "update", "patch", "delete", "apply", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
