@@ -17,14 +17,19 @@ spec:
         runAsUser: 0
       containers:
         - name: jenkins
-          image: jenkins/jenkins:2.554-jdk21
+          image: kittisakbook/jenkins:2.554-jdk21
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
           volumeMounts:
             - mountPath: /var/jenkins_home
               name: jenkinsdata
+            - mountPath: /var/run/docker.sock  # เพิ่ม
+              name: docker-sock
       volumes:
         - name: jenkinsdata
           persistentVolumeClaim:
             claimName: jenkins-volume-claim
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
