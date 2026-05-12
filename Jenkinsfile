@@ -6,7 +6,7 @@ pipeline {
     TAG         = "${BUILD_NUMBER}"
     NODE_IP     = "192.168.100.x"
     BACKEND_URL = "http://${NODE_IP}:30081"
-    DOCKERHUB_USER = "your-dockerhub-username"
+    DOCKERHUB_USER = "kittisakbook"
   }
 
   triggers {
