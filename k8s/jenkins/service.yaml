@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+spec:
+  type: NodePort
+  selector:
+    app: jenkins # ต้องตรงกับ label ใน Deployment
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080         # Port ของ Service ภายในคลัสเตอร์
+      targetPort: 8080   # Port ของ Pod ที่ต้องการส่งไปหา
+      nodePort: 30808    # Port ที่เปิดบน node ทุกตัวให้เข้าจากภายนอก
+    - name: jnlp
+      protocol: TCP
+      port: 50000        # Port สำหรับ Jenkins agents
+      targetPort: 50000
+      nodePort: 30500
