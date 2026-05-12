@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-volume-claim
+  labels:
+    app: jenkins
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      app: jenkins-jbpt
