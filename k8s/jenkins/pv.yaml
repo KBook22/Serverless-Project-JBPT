@@ -8,8 +8,9 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: /data/jenkins
+  nfs:
+    server: 192.168.100.1
+    path: /srv/nfs/jenkins
