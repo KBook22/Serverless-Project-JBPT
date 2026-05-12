@@ -10,7 +10,7 @@ pipeline {
   }
 
   triggers {
-    pollSCM('H/5 * * * *')   // poll ทุก 5 นาที ถ้า main เปลี่ยนก็ build
+    pollSCM('* * * * *')   // poll ทุก 5 นาที ถ้า main เปลี่ยนก็ build
   }
 
   stages {
