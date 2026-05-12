@@ -10,7 +10,7 @@ pipeline {
   }
 
   triggers {
-    pollSCM('* * * * *')   // poll ทุก 5 นาที ถ้า main เปลี่ยนก็ build
+    pollSCM('* * * * *')   // poll ทุก 1 นาที ถ้า main เปลี่ยนก็ build
   }
 
   stages {
@@ -58,12 +58,12 @@ pipeline {
           kubectl apply -f k8s/app/postgres-deployment.yaml
           kubectl apply -f k8s/app/postgres-service.yaml
 
-          kubectl set image deployment/backend \
-            backend=${DOCKERHUB_USER}/jbpt-backend:${TAG}
-          kubectl set image deployment/frontend \
-            frontend=${DOCKERHUB_USER}/jbpt-frontend:${TAG}
+          sed -i 's|kittisakbook/jbpt-backend:latest|kittisakbook/jbpt-backend:${TAG}|g' k8s/app/backend-deployment.yaml
+          sed -i 's|kittisakbook/jbpt-frontend:latest|kittisakbook/jbpt-frontend:${TAG}|g' k8s/app/frontend-deployment.yaml
 
+          kubectl apply -f k8s/app/backend-deployment.yaml
           kubectl apply -f k8s/app/backend-service.yaml
+          kubectl apply -f k8s/app/frontend-deployment.yaml
           kubectl apply -f k8s/app/frontend-service.yaml
         """
       }
