@@ -17,7 +17,7 @@ scrape_configs:
   - job_name: 'k8s-control-node' # Kubernetes Control Plane
     static_configs:
       - targets:
-          - '192.168.193.101:9090'
+          - '192.168.193.101:9100'
 
         labels:
           role: 'control-plane'
@@ -26,21 +26,21 @@ scrape_configs:
   - job_name: 'k8s-worker-nodes' # Kubernetes Worker Nodes
     static_configs:
       - targets:
-          - '192.168.193.102:9090'
+          - '192.168.193.102:9100'
 
         labels:
           role: 'worker'
           node: 'worker-1'
 
       - targets:
-          - '192.168.1.103:9090'
+          - '192.168.193.103:9100'
 
         labels:
           role: 'worker'
           node: 'worker-2'
 
       - targets:
-          - '192.168.1.104:9090'
+          - '192.168.193.104:9100'
 
         labels:
           role: 'worker'
