@@ -17,7 +17,7 @@ spec:
         runAsUser: 0
       containers:
         - name: jenkins
-          image: kittisakbook/jenkins:2.554-jdk21
+          image: kittisakbook/jenkins-docker:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
