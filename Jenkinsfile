@@ -4,7 +4,7 @@ pipeline {
 
   environment {
     TAG         = "${BUILD_NUMBER}"
-    NODE_IP     = "192.168.100.x"
+    NODE_IP     = "192.168.193.104"
     BACKEND_URL = "http://${NODE_IP}:30081"
     DOCKERHUB_USER = "kittisakbook"
   }
