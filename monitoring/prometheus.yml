@@ -45,3 +45,11 @@ scrape_configs:
         labels:
           role: 'worker'
           node: 'worker-3'
+
+  - job_name: 'jbpt-backend'
+    static_configs:
+      - targets:
+          - '192.168.193.104:30081'   # NodePort ของ backend (IP ไหนก็ได้)
+        labels:
+          role: 'app'
+          service: 'backend'

@@ -10,6 +10,7 @@ resource "docker_image" "node_exporter_node1" {
 }
 
 # Upload prometheus.yml เป็น config file บน host
+
 resource "docker_container" "prometheus" {
   provider = docker.node1
   name     = "prometheus"
@@ -25,6 +26,13 @@ resource "docker_container" "prometheus" {
     container_path = "/etc/prometheus/prometheus.yml"
     read_only      = true
   }
+
+  # เพิ่ม flag นี้เพื่อเปิด HTTP reload API
+  command = [
+    "--config.file=/etc/prometheus/prometheus.yml",
+    "--storage.tsdb.path=/prometheus",
+    "--web.enable-lifecycle"
+  ]
 
   restart = "unless-stopped"
 }

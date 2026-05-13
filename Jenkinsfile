@@ -69,6 +69,30 @@ pipeline {
       }
     }
 
+    stage('Update Prometheus Config') {
+      steps {
+        withCredentials([sshUserPrivateKey(
+          credentialsId: 'node1-ssh-key',
+          keyFileVariable: 'SSH_KEY'
+        )]) {
+          sh """
+            scp -i ${SSH_KEY} -o StrictHostKeyChecking=no \
+              monitoring/prometheus.yml root@192.168.193.101:/etc/prometheus/prometheus.yml
+
+            RESPONSE=\$(curl -s -o /dev/null -w "%{http_code}" \
+              -X POST http://192.168.193.101:9090/-/reload)
+
+            if [ "\$RESPONSE" != "200" ]; then
+              echo "Prometheus reload failed: HTTP \$RESPONSE"
+              exit 1
+            fi
+
+            echo "Prometheus reload success"
+          """
+        }
+      }
+    }
+
     stage('Verify') {
       steps {
         sh "kubectl rollout status deployment/postgres"
