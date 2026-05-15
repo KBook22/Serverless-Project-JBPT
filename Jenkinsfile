@@ -63,6 +63,7 @@ pipeline {
 
           kubectl apply -f k8s/app/backend-deployment.yaml
           kubectl apply -f k8s/app/backend-service.yaml
+          kubectl apply -f k8s/app/backend-hpa.yaml
           kubectl apply -f k8s/app/frontend-deployment.yaml
           kubectl apply -f k8s/app/frontend-service.yaml
         """
