@@ -15,9 +15,9 @@ spec:
         - name: backend
           resources:
             requests:
-              cpu: "10m"
-            limits:
               cpu: "100m"
+            limits:
+              cpu: "200m"
           image: kittisakbook/jbpt-backend:latest
           imagePullPolicy: Always
           env:
