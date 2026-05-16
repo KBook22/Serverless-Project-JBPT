@@ -6,7 +6,7 @@ export function QrGenerator() {
   const { inputType, setInputType, content, setContent, downloading, toast, download, qrRef } = useQrCode();
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-8">
+    <div className="min-h-screen bg-orange-200 flex items-center justify-center p-8">
       <div className="w-full max-w-5xl rounded-2xl border border-gray-700 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="p-12 bg-gray-900 border-b border-gray-700 md:border-b-0 md:border-r">
